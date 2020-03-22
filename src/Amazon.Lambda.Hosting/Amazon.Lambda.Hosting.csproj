@@ -3,6 +3,10 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>Latest</LangVersion>
+    <Version>1.0.0</Version>
+    <Description>Amazon Lambda Hosting support for .NET Core 3.0+</Description>
+    <PackageTags>AWS;Amazon;Lambda;DotNet;DotNetCore;DotNetCore3;Hosting</PackageTags>
+    <Authors>Aaron Shiels</Authors>
   </PropertyGroup>
 
   <ItemGroup>
