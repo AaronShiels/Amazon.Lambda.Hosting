@@ -1,21 +1,21 @@
 using System.Threading.Tasks;
 using Amazon.Lambda.APIGatewayEvents;
 using Amazon.Lambda.Core;
-using Amazon.Lambda.Hosting.Handlers;
+using Amazon.Lambda.Hosting.Functions;
 using Microsoft.Extensions.Logging;
 
 namespace Amazon.Lambda.Hosting.Sample
 {
-    public class ApiGatewayHandler : BaseHandler<APIGatewayProxyRequest, APIGatewayProxyResponse>
+    public class ApiGatewayFunction : BaseFunction<APIGatewayProxyRequest, APIGatewayProxyResponse>
     {
-        private readonly ILogger<ApiGatewayHandler> _log;
+        private readonly ILogger<ApiGatewayFunction> _log;
 
-        public ApiGatewayHandler(ILogger<ApiGatewayHandler> log)
+        public ApiGatewayFunction(ILogger<ApiGatewayFunction> log)
         {
             _log = log;
         }
 
-        protected override Task<APIGatewayProxyResponse> HandleAsync(APIGatewayProxyRequest request, ILambdaContext context)
+        protected override Task<APIGatewayProxyResponse> InvokeAsync(APIGatewayProxyRequest request, ILambdaContext context)
         {
             _log.LogInformation("Invoked request!");
 

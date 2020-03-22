@@ -4,19 +4,18 @@ using System.Threading.Tasks;
 using Amazon.Lambda.Core;
 using Amazon.Lambda.RuntimeSupport;
 
-namespace Amazon.Lambda.Hosting.Handlers
+namespace Amazon.Lambda.Hosting.Functions
 {
-    public abstract class BaseHandler<TRequest, TResponse> : ILambdaHandler
+    public abstract class BaseOutputFunction<TOutput> : ILambdaFunction
     {
         private static readonly MemoryStream ResponseStream = new MemoryStream(0);
         private static readonly JsonSerializerOptions JsonOptions = new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
 
-        public async Task<InvocationResponse> HandleAsync(InvocationRequest invocation)
+        public async Task<InvocationResponse> InvokeAsync(InvocationRequest invocation)
         {
-            var request = await JsonSerializer.DeserializeAsync<TRequest>(invocation.InputStream);
             var context = invocation.LambdaContext;
 
-            var response = await HandleAsync(request, context);
+            var response = await InvokeAsync(context);
 
             ResponseStream.SetLength(0);
             await JsonSerializer.SerializeAsync(ResponseStream, response, JsonOptions);
@@ -24,6 +23,6 @@ namespace Amazon.Lambda.Hosting.Handlers
             return new InvocationResponse(ResponseStream, false);
         }
 
-        protected abstract Task<TResponse> HandleAsync(TRequest request, ILambdaContext context);
+        protected abstract Task<TOutput> InvokeAsync(ILambdaContext context);
     }
 }

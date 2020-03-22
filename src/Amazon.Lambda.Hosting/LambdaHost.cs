@@ -1,7 +1,7 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Amazon.Lambda.Hosting.Handlers;
+using Amazon.Lambda.Hosting.Functions;
 using Amazon.Lambda.RuntimeSupport;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -36,8 +36,8 @@ namespace Amazon.Lambda.Hosting
         private Task<InvocationResponse> HandleAsync(InvocationRequest request)
         {
             using var serviceScope = _services.CreateScope();
-            var handler = serviceScope.ServiceProvider.GetRequiredService<ILambdaHandler>();
-            return handler.HandleAsync(request);
+            var function = serviceScope.ServiceProvider.GetRequiredService<ILambdaFunction>();
+            return function.InvokeAsync(request);
         }
     }
 }

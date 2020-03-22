@@ -14,21 +14,21 @@ dotnet new console
 dotnet add package Amazon.Lambda.Hosting
 ```
 
-Create an implementation of `ILambdaHandler` to house the logic of your Lambda function. Provided in this library are 3 useful base classes that encapsulate the JSON serialization fundamentals:
-* `BaseHandler` - Request/response.
-* `BaseInputHandler` - Requests only (empty response).
-* `BaseOutHandler` - Response only (empty request).
+Create an implementation of `ILambdaFunction` to house the logic of your Lambda function. Provided in this library are 3 useful base classes that encapsulate the JSON serialization fundamentals:
+* `BaseFunction` - Request/response.
+* `BaseInputFunction` - Requests only (empty response).
+* `BaseOutputFunction` - Response only (empty request).
 ```c#
-public class ApiGatewayHandler : BaseHandler<APIGatewayProxyRequest, APIGatewayProxyResponse>
+public class ApiGatewayFunction : BaseFunction<APIGatewayProxyRequest, APIGatewayProxyResponse>
 {
-    private readonly ILogger<ApiGatewayHandler> _log;
+    private readonly ILogger<ApiGatewayFunction> _log;
 
-    public ApiGatewayHandler(ILogger<ApiGatewayHandler> log)
+    public ApiGatewayFunction(ILogger<ApiGatewayFunction> log)
     {
         _log = log;
     }
 
-    protected async override Task<APIGatewayProxyResponse> HandleAsync(APIGatewayProxyRequest request, ILambdaContext context)
+    protected async override Task<APIGatewayProxyResponse> InvokeAsync(APIGatewayProxyRequest request, ILambdaContext context)
     {
         _log.LogInformation("Invoked request!");
 
@@ -51,7 +51,7 @@ public class Program
     public static IHostBuilder CreateHostBuilder(string[] args) => LambdaHost
         .CreateDefaultBuilder()
         .ConfigureLogging((ctx, logging) => logging.AddConsole())
-        .ConfigureServices(services => services.AddSingleton<ILambdaHandler, ApiGatewayHandler>());
+        .ConfigureServices(services => services.AddSingleton<ILambdaFunction, ApiGatewayFunction>());
 }
 ```
 
