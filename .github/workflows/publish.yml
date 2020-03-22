@@ -10,16 +10,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout the code
+    - name: Checkout
       uses: actions/checkout@v2
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.101
-    - name: Package with dotnet
+    - name: Pack
       run: dotnet pack ./src/Amazon.Lambda.Hosting/ -c Release
-    - name: Publish to NuGet
-      run: dotnet nuget push **/*.nupkg -k $NUGET_API_KEY
+    - name: Publish
+      run: dotnet nuget push **/*.nupkg -k $NUGET_API_KEY -s $NUGET_SOURCE
       env:
         NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+        NUGET_SOURCE: https://api.nuget.org/v3/index.json
     

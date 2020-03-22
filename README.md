@@ -1,4 +1,4 @@
-# Amazon.Lambda.Hosting ![publish](https://github.com/AaronShiels/Amazon.Lambda.Hosting/workflows/Publish%20to%20NuGet/badge.svg) [![nuget](https://img.shields.io/nuget/v/Amazon.Lambda.Hosting.svg)](https://www.nuget.org/packages/Amazon.Lambda.Hosting/)
+# Amazon.Lambda.Hosting ![publish](https://github.com/AaronShiels/Amazon.Lambda.Hosting/workflows/publish/badge.svg) [![nuget](https://img.shields.io/nuget/v/Amazon.Lambda.Hosting.svg)](https://www.nuget.org/packages/Amazon.Lambda.Hosting/)
 An IHost implementation of [Amazon.Lambda.RuntimeSupport](https://github.com/aws/aws-lambda-dotnet/tree/master/Libraries/src/Amazon.Lambda.RuntimeSupport/), allowing for first-class support for logging, configuration and dependency-injection and .NET Core 3.0+ compatibility. Based on the AWS Blog post [.NET Core 3.0 on Lambda with AWS Lambda’s Custom Runtime](https://aws.amazon.com/blogs/developer/net-core-3-0-on-lambda-with-aws-lambdas-custom-runtime/).
 
 ## Features
