@@ -1,0 +1,18 @@
+service: amazon-lambda-hosting-sample
+
+provider:
+  name: aws
+  runtime: provided
+  region: us-west-2
+
+package:
+  individually: true
+  artifact: bin/Release/netcoreapp3.1/Amazon.Lambda.Hosting.Sample.zip
+  
+functions:
+  sample:
+    handler: Amazon.Lambda.Hosting::Amazon.Lambda.Hosting.Program::Main
+    events:
+      - http:
+          path: /
+          method: ANY
