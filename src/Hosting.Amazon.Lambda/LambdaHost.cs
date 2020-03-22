@@ -1,12 +1,12 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Amazon.Lambda.Hosting.Functions;
+using Hosting.Amazon.Lambda.Functions;
 using Amazon.Lambda.RuntimeSupport;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace Amazon.Lambda.Hosting
+namespace Hosting.Amazon.Lambda
 {
     public class LambdaHost : IHost
     {

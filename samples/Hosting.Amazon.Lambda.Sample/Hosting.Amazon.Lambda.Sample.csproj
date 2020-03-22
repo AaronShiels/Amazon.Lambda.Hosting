@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="../../src/Amazon.Lambda.Hosting/Amazon.Lambda.Hosting.csproj" />
+    <ProjectReference Include="../../src/Hosting.Amazon.Lambda/Hosting.Amazon.Lambda.csproj" />
   </ItemGroup>
 
 </Project>

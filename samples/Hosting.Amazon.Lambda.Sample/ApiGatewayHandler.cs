@@ -1,10 +1,10 @@
 using System.Threading.Tasks;
 using Amazon.Lambda.APIGatewayEvents;
 using Amazon.Lambda.Core;
-using Amazon.Lambda.Hosting.Functions;
+using Hosting.Amazon.Lambda.Functions;
 using Microsoft.Extensions.Logging;
 
-namespace Amazon.Lambda.Hosting.Sample
+namespace Hosting.Amazon.Lambda.Sample
 {
     public class ApiGatewayFunction : BaseFunction<APIGatewayProxyRequest, APIGatewayProxyResponse>
     {

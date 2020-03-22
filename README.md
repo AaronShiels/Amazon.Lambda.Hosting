@@ -1,4 +1,4 @@
-# Amazon.Lambda.Hosting ![publish](https://github.com/AaronShiels/Amazon.Lambda.Hosting/workflows/publish/badge.svg) [![nuget](https://img.shields.io/nuget/v/Amazon.Lambda.Hosting.svg)](https://www.nuget.org/packages/Amazon.Lambda.Hosting/)
+# Hosting.Amazon.Lambda ![publish](https://github.com/AaronShiels/Hosting.Amazon.Lambda/workflows/publish/badge.svg) [![nuget](https://img.shields.io/nuget/v/Hosting.Amazon.Lambda.svg)](https://www.nuget.org/packages/Hosting.Amazon.Lambda/)
 An IHost implementation of [Amazon.Lambda.RuntimeSupport](https://github.com/aws/aws-lambda-dotnet/tree/master/Libraries/src/Amazon.Lambda.RuntimeSupport/), allowing for first-class support for logging, configuration and dependency-injection and .NET Core 3.0+ compatibility. Based on the AWS Blog post [.NET Core 3.0 on Lambda with AWS Lambda’s Custom Runtime](https://aws.amazon.com/blogs/developer/net-core-3-0-on-lambda-with-aws-lambdas-custom-runtime/).
 
 ## Features
@@ -8,10 +8,10 @@ An IHost implementation of [Amazon.Lambda.RuntimeSupport](https://github.com/aws
 * Default JSON-based implementations using [System.Text.Json](https://github.com/dotnet/runtime/tree/master/src/libraries/System.Text.Json).
 
 ## Usage
-Create a new console library project and install [Amazon.Lambda.Hosting](https://www.nuget.org/packages/Amazon.Lambda.Hosting/).
+Create a new console library project and install [Hosting.Amazon.Lambda](https://www.nuget.org/packages/Hosting.Amazon.Lambda/).
 ```
 dotnet new console
-dotnet add package Amazon.Lambda.Hosting
+dotnet add package Hosting.Amazon.Lambda
 ```
 
 Create an implementation of `ILambdaFunction` to house the logic of your Lambda function. Provided in this library are 3 useful base classes that encapsulate the JSON serialization fundamentals:
@@ -75,7 +75,7 @@ Package your lambda as a self-contained application.
 dotnet lambda package -c Release --msbuild-parameters "--self-contained true"
 ```
 
-Deploy or invoke your function using the [Serverless Framework](https://serverless.com/framework/docs/providers/aws/cli-reference/) CLI tools or equivalent AWS tools. Provided is a [sample project](./samples/Amazon.Lambda.Hosting.Sample) with a valid [serverless.yml](./samples/Amazon.Lambda.Hosting.Sample/serverless.yml).
+Deploy or invoke your function using the [Serverless Framework](https://serverless.com/framework/docs/providers/aws/cli-reference/) CLI tools or equivalent AWS tools. Provided is a [sample project](./samples/Hosting.Amazon.Lambda.Sample) with a valid [serverless.yml](./samples/Hosting.Amazon.Lambda.Sample/serverless.yml).
 ```
 serverless invoke local --function sample --data "{}"
 serverless deploy --verbose

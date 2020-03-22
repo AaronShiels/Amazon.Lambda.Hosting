@@ -1,4 +1,4 @@
-service: amazon-lambda-hosting-sample
+service: hosting-amazon-lambda
 
 provider:
   name: aws
@@ -7,11 +7,11 @@ provider:
 
 package:
   individually: true
-  artifact: bin/Release/netcoreapp3.1/Amazon.Lambda.Hosting.Sample.zip
+  artifact: bin/Release/netcoreapp3.1/Hosting.Amazon.Lambda.Sample.zip
   
 functions:
   sample:
-    handler: Amazon.Lambda.Hosting::Amazon.Lambda.Hosting.Program::Main
+    handler: Hosting.Amazon.Lambda::Hosting.Amazon.Lambda.Program::Main
     events:
       - http:
           path: /

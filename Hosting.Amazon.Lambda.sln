@@ -5,11 +5,11 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3A3C273D-58A1-4C92-AAEA-F5014A364DB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amazon.Lambda.Hosting", "src\Amazon.Lambda.Hosting\Amazon.Lambda.Hosting.csproj", "{43AD6024-F283-4FFF-B770-1E5C818BB4B4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hosting.Amazon.Lambda", "src\Hosting.Amazon.Lambda\Hosting.Amazon.Lambda.csproj", "{43AD6024-F283-4FFF-B770-1E5C818BB4B4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{730F1BF8-C364-4D65-AA15-182FD54BBE07}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amazon.Lambda.Hosting.Sample", "samples\Amazon.Lambda.Hosting.Sample\Amazon.Lambda.Hosting.Sample.csproj", "{6BA90E47-2C5E-474A-AD11-15D4E485D6BC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hosting.Amazon.Lambda.Sample", "samples\Hosting.Amazon.Lambda.Sample\Hosting.Amazon.Lambda.Sample.csproj", "{6BA90E47-2C5E-474A-AD11-15D4E485D6BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

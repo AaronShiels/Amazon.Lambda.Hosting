@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Amazon.Lambda.Core;
 using Amazon.Lambda.RuntimeSupport;
 
-namespace Amazon.Lambda.Hosting.Functions
+namespace Hosting.Amazon.Lambda.Functions
 {
     public abstract class BaseInputFunction<TRequest> : ILambdaFunction
     {

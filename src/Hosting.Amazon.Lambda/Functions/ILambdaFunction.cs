@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using Amazon.Lambda.RuntimeSupport;
 
-namespace Amazon.Lambda.Hosting.Functions
+namespace Hosting.Amazon.Lambda.Functions
 {
     public interface ILambdaFunction
     {
